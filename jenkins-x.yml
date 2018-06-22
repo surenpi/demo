@@ -1,3 +1,7 @@
+issueTracker:
+  kind: github
+  url: https://github.com
+  project: demo
 chat:
   kind: slack
   url: https://kubernetes.slack.com/
