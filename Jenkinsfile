@@ -1,9 +1,15 @@
 pipeline {
     agent any
     stages {
-      stage('CI Build and push snapshot') {
+      stage('one') {
           steps{
-            echo "Sdf"
+            echo "one"
+          }
+      }
+        
+      stage('two') {
+          steps{
+            echo "two"
           }
       }
     }
