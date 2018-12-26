@@ -6,6 +6,7 @@ pipeline {
       stage('one') {
           steps{
             echo "one"
+            echo "jira"
           }
       }
         
