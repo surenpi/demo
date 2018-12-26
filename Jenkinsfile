@@ -7,6 +7,7 @@ pipeline {
           steps{
             echo "one"
             echo "jira"
+            echo "jira again"
           }
       }
         
