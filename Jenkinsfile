@@ -32,6 +32,9 @@ pipeline {
         
         
       stage('maven') {
+          tools {
+              maven 'maven'
+          }
           steps{
               script {
                   sh 'clean install'
