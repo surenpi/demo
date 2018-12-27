@@ -37,7 +37,7 @@ pipeline {
           }
           steps{
               script {
-                  sh 'mvn clean install'
+                  sh 'mvn clean install -DskipTests'
               }
           }
       }
@@ -51,7 +51,7 @@ pipeline {
                   def rtMaven = Artifactory.newMavenBuild()
                   rtMaven.tool = 'maven'
                   
-                  def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
+                  def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install -DskipTests'
               }
           }
       }
