@@ -29,5 +29,18 @@ pipeline {
               }
           }
       }
+        
+        
+        
+      stage('three') {
+          steps{
+              script {
+                  def server = Artifactory.server 'artifactory'
+                  def rtMaven = Artifactory.newMavenBuild()
+                  
+                  def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
+              }
+          }
+      }
     }
   }
