@@ -16,6 +16,7 @@ pipeline {
             echo "two"
               
               script {
+                def server = Artifactory.server 'artifactory'
                 def uploadSpec = """{
                   "files": [
                     {
