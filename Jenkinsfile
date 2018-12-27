@@ -56,8 +56,6 @@ pipeline {
                   server.publishBuildInfo buildInfo
                   
                   println buildInfo
-                  addInfoBadge id: 'artifactory', text: buildInfo.name
-                  addInfoBadge id: 'number', text: buildInfo.number
               }
           }
       }
