@@ -37,6 +37,7 @@ pipeline {
               script {
                   def server = Artifactory.server 'artifactory'
                   def rtMaven = Artifactory.newMavenBuild()
+                  rtMaven.tool = 'maven'
                   
                   def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
               }
