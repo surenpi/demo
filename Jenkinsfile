@@ -21,7 +21,7 @@ pipeline {
                   "files": [
                     {
                       "pattern": "Jenkinsfile",
-                      "target": "test"
+                      "target": "jenkins-test"
                     }
                  ]
                 }"""
