@@ -54,6 +54,8 @@ pipeline {
                   
                   def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install -DskipTests'
                   server.publishBuildInfo buildInfo
+                  
+                  addInfoBadge id: 'artifactory', text: buildInfo.version
               }
           }
       }
