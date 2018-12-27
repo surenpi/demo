@@ -31,7 +31,7 @@ pipeline {
       }
         
         
-      stage('maven') {
+      stage('maven') {buildInfo.deployedArtifacts
           tools {
               maven 'maven'
           }
@@ -57,7 +57,7 @@ pipeline {
                   
                   println buildInfo
                   addInfoBadge id: 'artifactory', text: buildInfo.name
-                  addInfoBadge id: '', text: buildInfo.deployedArtifacts[0].name
+                  addInfoBadge id: 'number', text: buildInfo.number
               }
           }
       }
