@@ -31,7 +31,7 @@ pipeline {
       }
         
         
-      stage('maven') {buildInfo.deployedArtifacts
+      stage('maven') {
           tools {
               maven 'maven'
           }
