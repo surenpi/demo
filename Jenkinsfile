@@ -57,6 +57,7 @@ pipeline {
                   
                   println buildInfo
                   addInfoBadge id: 'artifactory', text: buildInfo.name
+                  addInfoBadge id: '', text: buildInfo.deployedArtifacts[0].name
               }
           }
       }
