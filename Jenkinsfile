@@ -14,6 +14,18 @@ pipeline {
       stage('two') {
           steps{
             echo "two"
+              
+              script {
+                def uploadSpec = """{
+                  "files": [
+                    {
+                      "pattern": "Jenkinsfile",
+                      "target": "test"
+                    }
+                 ]
+                }"""
+                server.upload(uploadSpec)
+              }
           }
       }
     }
