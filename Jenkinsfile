@@ -55,6 +55,8 @@ pipeline {
                   def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install -DskipTests'
                   server.publishBuildInfo buildInfo
                   
+                  addInfoBadge id: 'buildInfo', text: buildInfo.name + '-' + buildInfo.number
+                  
                   println buildInfo
               }
           }
