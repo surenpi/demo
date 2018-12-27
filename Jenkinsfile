@@ -50,8 +50,10 @@ pipeline {
                   def server = Artifactory.server 'artifactory'
                   def rtMaven = Artifactory.newMavenBuild()
                   rtMaven.tool = 'maven'
+                  rtMaven.deployer.deployArtifacts = true
                   
                   def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install -DskipTests'
+                  server.publishBuildInfo buildInfo
               }
           }
       }
