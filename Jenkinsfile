@@ -55,9 +55,13 @@ pipeline {
                   def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install -DskipTests'
                   server.publishBuildInfo buildInfo
                   
-                  addInfoBadge id: 'buildInfo', text: server.url + '/api/build/' + buildInfo.name + '/' + buildInfo.number
+                  def apiURL = server.url + '/api/build/' + buildInfo.name + '/' + buildInfo.number
                   
-                  println buildInfo
+                  def responseFile = "hello.txt"
+                  http url: apiURL, responseBody: responseFile
+                  archiveArtifacts responseFile
+                  
+                  addInfoBadge id: 'buildInfo', text: readFile responseFile
               }
           }
       }
