@@ -61,7 +61,8 @@ pipeline {
                   http url: apiURL, responseBody: responseFile
                   archiveArtifacts responseFile
                   
-                  addInfoBadge id: 'buildInfo', text: readFile responseFile
+                  content = readFile responseFile
+                  addInfoBadge id: 'buildInfo', text: content
               }
           }
       }
