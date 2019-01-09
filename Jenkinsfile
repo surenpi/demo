@@ -1,14 +1,21 @@
 pipeline {
     agent {
-        label "master"
+        label 'master'
     }
+
     stages {
-      stage('one') {
-          steps{
-            echo "one"
-            echo "jira"
-            echo "jira again"
-          }
-      }
+        stage('one') {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo 'Hello World'
+            }
+        }
     }
-  }
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
+        }
+    }
+}
