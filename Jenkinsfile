@@ -6,7 +6,7 @@ pipeline {
     agent any
     
     triggers {
-      githubPullRequests events: [commitChanged()], spec: '', triggerMode: 'CRON'
+      githubPullRequests events: [commitChanged()], spec: '* * * * *', triggerMode: 'CRON'
     }
 
     stages{
