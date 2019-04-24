@@ -4,6 +4,10 @@ def isEmpty(str){
 
 pipeline {
     agent any
+    
+    triggers {
+      githubPullRequests events: [commitChanged()], spec: '', triggerMode: 'CRON'
+    }
 
     stages{
         stage("validation"){
