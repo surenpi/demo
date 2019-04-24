@@ -10,7 +10,7 @@ pipeline {
             steps{
                 script{
                     withChangeSets(){
-                        if(env.changePath != "" && env.changePath != null) {
+                        if(env.changePath != "" && env.changePath != null && env.changePath.endsWith(".md")) {
                             def articles = readYaml file: env.changePath
                             def article = articles[0]
                             if(isEmpty(article.title) || isEmpty(article.description)
