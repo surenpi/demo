@@ -7,3 +7,11 @@ on:
 
 on:  
   repository_dispatch
+
+
+jobs:
+  hugo-deploy-gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+    - name: test
+      run: echo 1
