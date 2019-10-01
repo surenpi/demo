@@ -1,10 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  - push:
-      branches:
-      - master
-  - repository_dispatch
+- push:
+    branches:
+    - master
+- repository_dispatch
 
 jobs:
   hugo-deploy-gh-pages:
