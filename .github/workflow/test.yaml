@@ -1,0 +1,9 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+    - master
+
+on:  
+  repository_dispatch
