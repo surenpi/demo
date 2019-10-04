@@ -9,4 +9,6 @@ env:
     - GO111MODULE=on
 
 script:
+  - export branch=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo pr-$TRAVIS_PULL_REQUEST; fi)
+  - echo $branch
   - if [ 'OK' != $(curl -s "https://sonarcloud.io/api/qualitygates/project_status?branch=pr-181&projectKey=jenkins-zh_jenkins-cli" | python -c "import sys, json; print(json.load(sys.stdin)['projectStatus']['status'])") ]; then exit -1; fi
