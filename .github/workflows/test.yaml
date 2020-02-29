@@ -11,4 +11,4 @@ jobs:
     - name: update
       run: |
         git clone https://github.com/LinuxSuRen/demo
-        cd demo && touch def && git add . && hub commit -m 'Auto commit by bot' && hub push https://linuxsuren:${{ secrets.GITHUB_TOKEN }}@github.com/LinuxSuRen/demo.git
+        cd demo && touch def && git add . && git commit -m 'Auto commit by bot' && git push https://linuxsuren:${{ secrets.GITHUB_TOKEN }}@github.com/LinuxSuRen/demo.git
