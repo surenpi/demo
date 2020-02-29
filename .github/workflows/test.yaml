@@ -9,7 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: update
-      env:
-        TOKEN: hao
       run: |
-        curl -X POST -H "Accept: application/vnd.github.everest-preview+json" -H "Authorization: token ${TOKEN}" -i "https://api.github.com/repos/jenkins-zh/jenkins-zh/dispatches" -d '{"event_type":"repository_dispatch"}'
+        git clone https://github.com/LinuxSuRen/demo
+        cd demo && touch def && git add . && hub commit -m 'Auto commit by bot' && hub push https://linuxsuren:${{ secrets.GITHUB_TOKEN }}@github.com/LinuxSuRen/demo.git
