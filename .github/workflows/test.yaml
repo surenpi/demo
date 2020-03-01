@@ -16,4 +16,4 @@ jobs:
         pwd
         git clone https://github.com/jenkins-zh/jcli-repo
         ls -hal
-        cd jcli-repo && touch def && git config --local user.email "rick@jenkins-zh.cn" && git config --local user.name "rick" && git add . && git commit -m 'Auto commit by bot' && git push https://jenkins-zh:${{ secrets.GITHUB_TOKEN }}@github.com/jenkins-zh/jcli-repo.git
+        cd jcli-repo && touch def && git config --local user.email "rick@jenkins-zh.cn" && git config --local user.name "rick" && git add . && git commit -m 'Auto commit by bot' && git push https://jenkins-zh:${{ secrets.GITHUB_SECRETS }}@github.com/jenkins-zh/jcli-repo.git
