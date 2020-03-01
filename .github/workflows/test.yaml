@@ -9,14 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: update
-      env:
-        PATH: ${{PATH}}:${{PWD}}/bin
       run: |
-        echo ${PATH}
-        git clone https://github.com/LinuxSuRen/demo
-        cd demo && git config --local user.email "action@github.com" && git config --local user.name "GitHub Action" && touch def && git add . && git commit -m 'Auto commit by bot' && git push https://linuxsuren:${{ secrets.GITHUB_TOKEN }}@github.com/LinuxSuRen/demo.git
-
-        pwd
-        git clone https://github.com/jenkins-zh/jcli-repo
-        ls -hal
-        cd jcli-repo && echo 1 >> def && git config --local user.email "rick@jenkins-zh.cn" && git config --local user.name "rick" && git add . && git commit -m 'Auto commit by bot' && git push https://linuxsuren:${{ secrets.GITHUB_SECRETS }}@github.com/jenkins-zh/jcli-repo.git
+        mkdir -p bin
+        curl -L https://github.com/kevinburke/go-bindata/releases/download/v3.11.0/go-bindata-linux-amd64 -o bin/go-bindata
+        chmod u+x bin/go-bindata
+        mv bin/go-bindata /usr/bin
