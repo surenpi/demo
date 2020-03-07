@@ -1,7 +1,8 @@
 name: Deploy to GitHub Pages
 
 on:
-  push
+  pull_request:
+    types: [closed]
 
 jobs:
   hugo-deploy-gh-pages:
@@ -10,13 +11,6 @@ jobs:
     - uses: actions/checkout@master
     - name: update
       run: |
-        mkdir -p bin
-        curl -L https://github.com/kevinburke/go-bindata/releases/download/v3.11.0/go-bindata-linux-amd64 -o bin/go-bindata
-        chmod u+x bin/go-bindata
-        echo $PATH
-        ls -ahl /usr/share/rust/.cargo/bin
-        ls -hal /usr/local/sbin
-        ls -hal /usr/local/bin
-        ls -hal /usr/sbin
-        ls -hal /usr/bin:/sbin
-        ls -hal /snap/bin
+        echo $GITHUB_REF
+        pr=$(echo $GITHUB_REF | sed 's/refs\/pull\/://g' | sed 's/\/merge//g')
+        echo $pr
