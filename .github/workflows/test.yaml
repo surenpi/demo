@@ -12,5 +12,5 @@ jobs:
     - name: update
       run: |
         echo $GITHUB_REF
-        pr=$(echo $GITHUB_REF | sed 's/refs\/pull\/://g' | sed 's/\/merge//g')
+        pr=$(echo $GITHUB_REF | sed 's/refs\/pull\///g' | sed 's/\/merge//g')
         echo $pr
