@@ -21,5 +21,6 @@ jobs:
       run: |
         echo xxx > a.log
         upx a.log
-        curl -L https://github.com/upx/upx/releases/download/v3.96/upx-3.96-amd64_linux.tar.xz | tar xvf
+        wget https://github.com/upx/upx/releases/download/v3.96/upx-3.96-amd64_linux.tar.xz
+        tar xvf upx-3.96-amd64_linux.tar.xz
         upx-3.96-amd64_linux/upx a.log
