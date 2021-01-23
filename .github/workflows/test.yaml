@@ -1,17 +1,25 @@
-name: Deploy to GitHub Pages
+name: Release
 
 on:
-  release:
-    types: # This configuration does not affect the page_build event above
-      - created
+  push:
+    branches:
+    - master
 
 jobs:
-  hugo-deploy-gh-pages:
+  goreleaser:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: update
+    - name: Checkout
+      uses: actions/checkout@v2.3.4
+    - name: Unshallow
+      run: git fetch --prune --unshallow
+    - name: Set up Go
+      uses: actions/setup-go@v2.1.3
+      with:
+        go-version: 1.13.x
+    - name: Run GoReleaser
       run: |
-        echo $GITHUB_REF
-        pr=$(echo $GITHUB_REF | sed 's/refs\/pull\///g' | sed 's/\/merge//g')
-        echo $pr
+        echo xxx > a.log
+        upx a.log
+        apt upgrade upx -y
+        upx a.log
